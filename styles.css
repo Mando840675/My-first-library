@@ -1,0 +1,73 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Global Reset & Base Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    height: 80px;
+    display: flex;
+}
+
+/* Navigation Container - centers content with max width */
+.nav__container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    width: 160px;
+}
+
+/* Navigation List */
+ul {
+    display: flex;
+}
+
+/* Remove default list bullets */
+li {
+    list-style-type: none;
+}
+
+/* Navigation Link Styles */
+.nav__link {
+    margin-left: 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+    padding: 8px;
+}
+
+/* Navigation Link Hover State */
+.nav__link:hover {
+    text-decoration: underline;
+}
+
+/* Primary CTA Link - outlined button style */
+ .nav__link--primary {
+    border: 2px solid blue;  
+     border-radius: 4px;
+ }
+
+/* Primary CTA Link Hover - remove underline */
+ .nav__link--primary:hover {
+    text-decoration: none;
+ }
+
+/* Landing Section */
+ #landing {
+    background-color: rgb(169, 202, 245);
+    height: calc(100vh - 80px);
+ }
