@@ -28,6 +28,8 @@ nav {
 /* Logo */
 .logo {
     width: 160px;
+    filter: invert(27%) sepia(96%) saturate(1200%) hue-rotate(208deg) brightness(130%) contrast(160%) drop-shadow(0 0 0 blue);
+    font-weight: bold;
 }
 
 /* Navigation List */
@@ -45,7 +47,7 @@ li {
     margin-left: 16px;
     text-decoration: none;
     font-size: 20px;
-    color: blue;
+    color: #1a56db;
     font-weight: bold;
     padding: 8px;
 }
@@ -57,7 +59,7 @@ li {
 
 /* Primary CTA Link - outlined button style */
  .nav__link--primary {
-    border: 2px solid blue;  
+    border: 2px solid #1a56db;  
      border-radius: 4px;
  }
 
@@ -68,6 +70,6 @@ li {
 
 /* Landing Section */
  #landing {
-    background-color: rgb(169, 202, 245);
+    background-color: rgb(188, 199, 214);
     height: calc(100vh - 80px);
  }
