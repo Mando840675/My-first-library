@@ -1,3 +1,20 @@
+:root {
+    --bg-1: #06111f;
+    --bg-2: #0c1f38;
+    --bg-3: #0f2747;
+    --panel: rgba(16, 32, 54, 0.72);
+    --panel-soft: rgba(14, 25, 42, 0.58);
+    --card: rgba(13, 22, 36, 0.7);
+    --text: #eaf2ff;
+    --muted: #aac4f5;
+    --primary: #5eead4;
+    --primary-2: #60a5fa;
+    --primary-3: #2563eb;
+    --blue: #60a5fa;
+    --line: rgba(148, 163, 184, 0.22);
+    --shadow: rgba(9, 14, 24, 0.32);
+}
+
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -9,32 +26,51 @@
     font-family: "Roboto", sans-serif;
 }
 
+body {
+    background: linear-gradient(180deg, #071422 0%, #0a1729 100%);
+    color: var(--text);
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
 /* Navigation Bar */
 nav {
     height: 80px;
     display: flex;
+    background: rgba(8, 17, 29, 0.55);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
 }
 
 /* Navigation Container - centers content with max width */
 .nav__container {
     width: 100%;
     max-width: 1200px;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
 }
 
+.blue {
+     color: var(--primary);
+}
+
 /* Logo */
 .logo {
     width: 160px;
-    filter: invert(27%) sepia(96%) saturate(1200%) hue-rotate(208deg) brightness(130%) contrast(160%) drop-shadow(0 0 0 blue);
+    filter: brightness(0) saturate(100%) invert(82%) sepia(56%) saturate(469%) hue-rotate(105deg) brightness(104%) contrast(92%);
     font-weight: bold;
 }
 
 /* Navigation List */
 ul {
     display: flex;
+    align-items: center;
 }
 
 /* Remove default list bullets */
@@ -46,30 +82,108 @@ li {
 .nav__link {
     margin-left: 16px;
     text-decoration: none;
-    font-size: 20px;
-    color: #1a56db;
-    font-weight: bold;
-    padding: 8px;
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
 }
 
 /* Navigation Link Hover State */
 .nav__link:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    background: rgba(96, 165, 250, 0.12);
+    color: var(--primary);
 }
 
 /* Primary CTA Link - outlined button style */
  .nav__link--primary {
-    border: 2px solid #1a56db;  
-     border-radius: 4px;
+    border: 1px solid rgba(94, 234, 212, 0.45);
+    background: linear-gradient(135deg, rgba(94, 234, 212, 0.12), rgba(96, 165, 250, 0.1));
+    color: var(--primary);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.14);
  }
 
 /* Primary CTA Link Hover - remove underline */
  .nav__link--primary:hover {
     text-decoration: none;
+    background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    color: #06111f;
  }
 
 /* Landing Section */
  #landing {
-    background-color: rgb(188, 199, 214);
-    height: calc(100vh - 80px);
+    background: radial-gradient(circle at top left, rgba(94, 234, 212, 0.12), transparent 30%),
+                radial-gradient(circle at top right, rgba(96, 165, 250, 0.16), transparent 35%),
+                linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
  }
+
+ header {
+    min-height: calc(100vh - 80px);
+ }
+
+ .header__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 48px 24px;
+    text-align: center;
+ }
+
+ .header__description {
+    max-width: 860px;
+ }
+
+ .eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.08);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    font-weight: 700;
+ }
+
+ h1 {
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    color: var(--text);
+    margin-bottom: 18px;
+    text-align: center;
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+ }
+
+ h2 {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+    color: var(--muted);
+    font-weight: 500;
+ }
+
+ .hero-graphic {
+    width: min(100%, 640px);
+    margin: 0 auto;
+    padding: 18px;
+    border-radius: 30px;
+    background: rgba(9, 15, 25, 0.26);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow: 0 25px 60px rgba(3, 7, 18, 0.45);
+ }
+
+ .hero-graphic img {
+    filter: drop-shadow(0 18px 30px rgba(96, 165, 250, 0.12));
+ }
+
