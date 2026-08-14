@@ -14,14 +14,27 @@
         <nav>
             <div class="nav__container"> 
                 <!-- Logo -->
-            <img class="logo" src="./FES%20Library%20-%20CSS/assets/Library.svg" alt="Library logo">
-            <!-- Navigation Links -->
-            <ul class="nav__links">
-                <li><a href="#" class="nav__link">Home</a></li>
-                <li><a href="#" class="nav__link">Contact</a></li>
-                <li><a href="#" class="nav__link nav__link--primary">Books</a></li>
-            </ul>
-        </div>
+                <img class="logo" src="./FES%20Library%20-%20CSS/assets/Library.svg" alt="Library logo">
+
+                <div class="nav__actions">
+                    <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+                        <span class="theme-toggle__icon">☀️</span>
+                    </button>
+
+                    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav__links">
+                    <li><a href="#" class="nav__link">Home</a></li>
+                    <li><a href="#" class="nav__link">Contact</a></li>
+                    <li><a href="#" class="nav__link nav__link--primary">Books</a></li>
+                </ul>
+            </div>
         </nav>
         <header>
           <div class="header__container">
@@ -36,6 +49,47 @@
           </div>  
         </header>
     </section>
+
+    <script>
+        const body = document.body;
+        const nav = document.querySelector('.nav__links');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.querySelector('.theme-toggle__icon');
+
+        const applyTheme = (isLight) => {
+            body.classList.toggle('light-theme', isLight);
+            themeIcon.textContent = isLight ? '🌙' : '☀️';
+            themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+            localStorage.setItem('library-theme', isLight ? 'light' : 'dark');
+        };
+
+        const savedTheme = localStorage.getItem('library-theme');
+        if (savedTheme === 'light') {
+            applyTheme(true);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isLight = !body.classList.contains('light-theme');
+            applyTheme(isLight);
+        });
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = body.classList.toggle('nav-open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+                menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 720) {
+                body.classList.remove('nav-open');
+                menuToggle?.setAttribute('aria-expanded', 'false');
+                menuToggle?.setAttribute('aria-label', 'Open navigation menu');
+            }
+        });
+    </script>
 
 </body>
 </html>
