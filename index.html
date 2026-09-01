@@ -6,8 +6,11 @@
     <title>Library</title>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ace08df5e1.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <input type="checkbox" id="theme-toggle" class="theme-switch" aria-label="Toggle color theme">
+    <input type="checkbox" id="nav-toggle" class="nav-switch" aria-label="Toggle navigation menu">
 
     <!-- Navigation Section -->
     <section id="landing">
@@ -17,15 +20,15 @@
                 <img class="logo" src="./FES%20Library%20-%20CSS/assets/Library.svg" alt="Library logo">
 
                 <div class="nav__actions">
-                    <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-                        <span class="theme-toggle__icon">☀️</span>
-                    </button>
+                    <label for="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">
+                        <span class="theme-toggle__icon" aria-hidden="true"></span>
+                    </label>
 
-                    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                    <label for="nav-toggle" class="menu-toggle" aria-label="Open navigation menu">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </button>
+                    </label>
                 </div>
 
                 <!-- Navigation Links -->
@@ -44,52 +47,13 @@
                 <h2>Find your dream book with <span class="blue">Library</span></h2>
             </div>
             <figure class="hero-graphic">
-                <img src="FES Library - CSS/assets/Undraw_Books.svg" alt="Books illustration">
+                <img src="./FES%20Library%20-%20CSS/assets/Undraw_Books.svg" alt="Books illustration">
             </figure>
           </div>  
         </header>
     </section>
 
-    <script>
-        const body = document.body;
-        const nav = document.querySelector('.nav__links');
-        const menuToggle = document.querySelector('.menu-toggle');
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = document.querySelector('.theme-toggle__icon');
-
-        const applyTheme = (isLight) => {
-            body.classList.toggle('light-theme', isLight);
-            themeIcon.textContent = isLight ? '🌙' : '☀️';
-            themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
-            localStorage.setItem('library-theme', isLight ? 'light' : 'dark');
-        };
-
-        const savedTheme = localStorage.getItem('library-theme');
-        if (savedTheme === 'light') {
-            applyTheme(true);
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const isLight = !body.classList.contains('light-theme');
-            applyTheme(isLight);
-        });
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                const isOpen = body.classList.toggle('nav-open');
-                menuToggle.setAttribute('aria-expanded', String(isOpen));
-                menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-            });
-        }
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 720) {
-                body.classList.remove('nav-open');
-                menuToggle?.setAttribute('aria-expanded', 'false');
-                menuToggle?.setAttribute('aria-label', 'Open navigation menu');
-            }
-        });
-    </script>
-
+    <main>
+    </main>
 </body>
 </html>
